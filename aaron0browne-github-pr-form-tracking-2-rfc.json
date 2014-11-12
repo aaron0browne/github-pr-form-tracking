@@ -1,0 +1,227 @@
+{
+    "fields": [
+        {
+            "description": "the status of this rfc",
+            "name": "Status",
+            "options": [
+                {
+                    "label": "rfc",
+                    "name": "created"
+                },
+                {
+                    "label": "rfc:status:submitted",
+                    "name": "submitted"
+                },
+                {
+                    "label": "rfc:status:approved",
+                    "name": "approved"
+                },
+                {
+                    "name": "declined"
+                },
+                {
+                    "name": "merged"
+                },
+                {
+                    "label": "rfc:status:implemented",
+                    "name": "implemented"
+                }
+            ],
+            "response": "created",
+            "type": "choice"
+        }
+    ],
+    "groups": [
+        {
+            "fields": [
+                {
+                    "default": "submitter",
+                    "description": "issue or PR submitter",
+                    "name": "Initiator",
+                    "response": "aaron0browne",
+                    "type": "username"
+                },
+                {
+                    "action": "assign",
+                    "description": "a project manager, not the initiator",
+                    "name": "Assignee",
+                    "options": [
+                        {
+                            "name": "aaron0browne"
+                        }
+                    ],
+                    "response": "aaron0browne",
+                    "type": "username"
+                },
+                {
+                    "default": "submitter",
+                    "description": "can be the initiator, not the assignee",
+                    "name": "Implementer",
+                    "response": "aaron0browne",
+                    "type": "username"
+                }
+            ],
+            "name": "Roles"
+        },
+        {
+            "fields": [
+                {
+                    "description": "the type of change requested",
+                    "name": "Type of Change",
+                    "options": [
+                        {
+                            "label": "rfc:type:bug",
+                            "name": "bug"
+                        },
+                        {
+                            "label": "rfc:type:upkeep",
+                            "name": "upkeep"
+                        },
+                        {
+                            "label": "rfc:type:refactor",
+                            "name": "refactor"
+                        },
+                        {
+                            "label": "rfc:type:feature",
+                            "name": "feature"
+                        }
+                    ],
+                    "response": "feature",
+                    "type": "choice"
+                },
+                {
+                    "description": "brief summary of the change",
+                    "name": "Description of Change",
+                    "response": "This is a test RFC.",
+                    "type": "text"
+                },
+                {
+                    "description": "brief explanation, reference any related issues",
+                    "name": "Reason for Change",
+                    "response": "Generating a screenshot for the README",
+                    "type": "text"
+                },
+                {
+                    "description": "probability that average client will notice the change",
+                    "name": "Client Visibility",
+                    "options": [
+                        {
+                            "label": "rfc:visibility:none",
+                            "name": "none"
+                        },
+                        {
+                            "label": "rfc:visibility:low",
+                            "name": "low"
+                        },
+                        {
+                            "label": "rfc:visibility:medium",
+                            "name": "medium"
+                        },
+                        {
+                            "label": "rfc:visibility:high",
+                            "name": "high"
+                        }
+                    ],
+                    "response": "high",
+                    "type": "choice"
+                }
+            ],
+            "name": "RFC Description"
+        },
+        {
+            "fields": [
+                {
+                    "description": "proposed, must be after approval (format as MM-DD-YY HH:MM)",
+                    "name": "Start Date and Time",
+                    "response": "11-12-14 11:00",
+                    "type": "datetime"
+                },
+                {
+                    "description": "estimated amount of time to implement (format as HH:MM)",
+                    "name": "Implementation Duration",
+                    "response": "00:05",
+                    "type": "time"
+                },
+                {
+                    "description": "estimated amount required downtime (format as HH:MM)",
+                    "name": "Downtime Duration",
+                    "response": "00:00",
+                    "type": "time"
+                },
+                {
+                    "description": "estimated amount of time to revert, if necessary (format as HH:MM)",
+                    "name": "Revert Duration",
+                    "response": "00:05",
+                    "type": "time"
+                },
+                {
+                    "description": "risk categorization, as determined from the risk assessment grid",
+                    "name": "Risk Assessment Category",
+                    "options": [
+                        {
+                            "label": "rfc:risk:low",
+                            "name": "low"
+                        },
+                        {
+                            "label": "rfc:risk:medium",
+                            "name": "medium"
+                        },
+                        {
+                            "label": "rfc:risk:high",
+                            "name": "high"
+                        }
+                    ],
+                    "response": "low",
+                    "type": "choice"
+                },
+                {
+                    "description": "urgency of request; if urgent, this form should be post-hoc",
+                    "name": "Change Request Urgency",
+                    "options": [
+                        {
+                            "label": "rfc:urgency:standard",
+                            "name": "standard"
+                        },
+                        {
+                            "label": "rfc:urgency:urgent",
+                            "name": "urgent"
+                        }
+                    ],
+                    "response": "standard",
+                    "type": "choice"
+                }
+            ],
+            "name": "Implementation"
+        },
+        {
+            "fields": [
+                {
+                    "description": "url or description of testing plan",
+                    "name": "Testing Plan",
+                    "response": "Change has no effect on code, doesn't need to be tested.",
+                    "type": "url/text"
+                },
+                {
+                    "description": "url of a screenshot showing successful automated testing or other proof of testing",
+                    "name": "Proof of Testing",
+                    "response": "https://cloud.githubusercontent.com/assets/3409975/5013038/b6550474-6a58-11e4-835c-4f0f06b75d5f.png",
+                    "type": "url/text"
+                },
+                {
+                    "description": "url or description of implementation plan",
+                    "name": "Implementation Plan",
+                    "response": "Take a screenshot of the generated RFC and upload it into a GitHub issue and then include in the README for github-pr-form.",
+                    "type": "url/text"
+                },
+                {
+                    "description": "url or description of revert plan",
+                    "name": "Revert Plan",
+                    "response": "Revert the commit.",
+                    "type": "url/text"
+                }
+            ],
+            "name": "Plans"
+        }
+    ],
+    "name": "Request for Change"
+}
